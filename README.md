@@ -21,7 +21,7 @@ For Pi-specific extensions, prompts, and themes, see the separate `pi-toolkit` r
 ## Repository Structure
 
 ```text
-agent-skills/
+skills/
 ├── skills/
 │   ├── code-review/
 │   │   └── SKILL.md
@@ -61,10 +61,9 @@ The Skills CLI runs through `npx` and does not require a separate global install
 Install skills from this repository:
 
 ```bash
-npx skills add USERNAME/agent-skills -g
+npx skills add 4typen/skills -g
 ```
 
-Replace `USERNAME` with your GitHub username.
 
 The CLI discovers the available skills and lets you select which skills and supported agents to install.
 
@@ -76,7 +75,7 @@ For private GitHub repositories, SSH authentication is recommended:
 
 ```bash
 npx skills add \
-  git@github.com:USERNAME/agent-skills.git -g
+  git@github.com:4typen/skills.git -g
 ```
 
 Ensure that your SSH key has access to the repository.
@@ -94,7 +93,7 @@ The Skills CLI can also use configured Git or GitHub CLI credentials.
 To install every skill globally for all supported agents:
 
 ```bash
-npx skills add USERNAME/agent-skills \
+npx skills add 4typen/skills \
   --all -g
 ```
 
@@ -107,7 +106,7 @@ For a more controlled installation, use the interactive command without `--all`.
 Install specific skills by name:
 
 ```bash
-npx skills add USERNAME/agent-skills \
+npx skills add 4typen/skills \
   --skill code-review \
   --skill refactoring \
   -g
@@ -118,7 +117,7 @@ npx skills add USERNAME/agent-skills \
 Inspect the repository before installing:
 
 ```bash
-npx skills add USERNAME/agent-skills --list
+npx skills add 4typen/skills --list
 ```
 
 ## Managing Skills
@@ -230,9 +229,9 @@ Skills are maintained in this Git repository.
 
 ```bash
 git clone \
-  git@github.com:USERNAME/agent-skills.git
+  git@github.com:4typen/skills.git
 
-cd agent-skills
+cd skills
 ```
 
 ### 2. Add or modify a skill
@@ -280,7 +279,7 @@ Each machine maintains its own installed skills.
 
 ```text
                  GitHub
-              agent-skills
+              skills
                    |
           +--------+--------+
           |                 |
@@ -299,7 +298,7 @@ Run once on each machine:
 
 ```bash
 npx skills add \
-  git@github.com:USERNAME/agent-skills.git -g
+  git@github.com:4typen/skills.git -g
 ```
 
 ### Regular updates
@@ -319,7 +318,7 @@ Pi-specific functionality is managed through a separate repository.
 
 | Repository | Purpose | Installation |
 |---|---|---|
-| `agent-skills` | Cross-agent skills | `npx skills add` |
+| `skills` | Cross-agent skills | `npx skills add` |
 | `pi-toolkit` | Pi extensions, prompts, themes | `pi install` |
 
 This separation keeps reusable skills independent from agent-specific implementations.
@@ -384,9 +383,9 @@ The Skills CLI manages installation paths and symlinks for supported agents.
 
 | Action | Command |
 |---|---|
-| Install globally | `npx skills add USERNAME/agent-skills -g` |
-| List repository skills | `npx skills add USERNAME/agent-skills --list` |
-| Install all skills | `npx skills add USERNAME/agent-skills --all -g` |
+| Install globally | `npx skills add 4typen/skills -g` |
+| List repository skills | `npx skills add 4typen/skills --list` |
+| Install all skills | `npx skills add 4typen/skills --all -g` |
 | List installed skills | `npx skills list -g` |
 | Check updates | `npx skills check` |
 | Update global skills | `npx skills update -g` |
