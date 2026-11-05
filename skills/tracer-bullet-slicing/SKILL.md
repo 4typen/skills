@@ -7,9 +7,7 @@ date: 2026-09-24
 updated: 2026-11-05
 ---
 
-# Tracer Bullet Slicing
-
-Slice a feature into tickets that never block the developer. Find blockers and hidden complexity first and give each its own ticket. Then cut one Tracer Bullet, then thin vertical slices.
+Slice a feature into tickets that never block the developer: first the blockers and hidden complexity, then one Tracer Bullet, then thin vertical slices.
 
 **Leading rule: zero blockade.** After stage 1, the developer builds the Tracer Bullet without waiting for another team, a third party, or an unfinished upstream feature. After stage 2, the same is true for every stage 3 slice.
 
@@ -19,7 +17,7 @@ A **Tracer Bullet** is production code: the thinnest real path through the whole
 
 ## 1. Normalize the requirement
 
-State the **actor**, the **trigger**, the **observable outcome**, the **rules and constraints**, and the **boundaries touched** (external systems, other teams, upstream data, downstream consumers). Mark missing points as unclear. Look for the answers in the codebase first; section 3 decides which ones to ask.
+State the **actor**, the **trigger**, the **observable outcome**, the **rules and constraints**, and the **boundaries touched** (external systems, other teams, upstream data, downstream consumers). Mark missing points as unclear. Look for the answers in the codebase first.
 
 If the requirement adds no new behavior, say so in one line and stop. This applies to a pure structural change, a defect fix, or an investigation. Vertical slices need new behavior.
 
@@ -41,36 +39,36 @@ Give each finding a verdict: **ready**, **blocked**, or **unclear**. Ready and b
 
 ## 3. Blocking questions
 
-For each unclear point, play through 2–3 plausible answers. The question is **blocking** if the answers lead to a different ticket list, port contract, Tracer Bullet path, acceptance criteria, or security and permission rules. If not, record it as an open decision on the affected ticket and state the assumed answer.
+For each unclear point, play through 2–3 plausible answers. The question is **blocking** if the answers change the ticket list, a port contract, or the Tracer Bullet path. A question about security, or about who may see or change which data, is always blocking. If only a detail inside one acceptance criterion changes, the question is not blocking. Record a non-blocking question as an open decision on the affected ticket and state the assumed answer.
 
 With one or more blocking questions, give only the normalized requirement and the questions, then stop. For each question, use this format:
 
 **Recommended:** [answer and reason]
 **Alternative:** [one other answer]
 
-If nobody can answer a question now, recommend how to clarify it, then stop. Slice again when the answer is known.
+If nobody can answer a question now, recommend how to clarify it.
 
 ## 4. Stage 1 · Make the change easy
 
-Every blocked finding becomes a ticket here that removes or isolates the blocker. Every stage 1 ticket is work the team can do itself. If a blocker needs work by another team, isolate it behind a port with fake; the real work goes to "Waiting for trigger". If a blocker cannot be isolated, name it and stop. Internal groundwork comes here only if it blocks the Tracer Bullet or at least two slices and has a measurable done criterion; otherwise it stays inside the slice that needs it. Each stage 1 ticket names what it unlocks. Split a large restructuring into tickets that can each be verified alone. Typical tickets:
+Every blocked finding becomes a ticket here that removes or isolates the blocker. The team does every stage 1 ticket itself. If a blocker needs work by another team, isolate it behind a port with fake; the real work goes to "Waiting for trigger". If a blocker cannot be isolated, name it and stop.
 
-- **Port with fake:** an external source is not ready, for example events that another module does not send yet. Derive the port from how its callers will use it, and check that the real producer can deliver this data; if that is unclear, apply section 3. Data from the fake stays apart from real user data and causes no real external side effects. Results based on the fake stay invisible to real users until the real source is verified.
+Internal groundwork comes here only if it blocks the Tracer Bullet or at least two slices and has a measurable done criterion; otherwise it stays inside the slice that needs it. Each stage 1 ticket names what it unlocks. Split a large restructuring into tickets that can each be verified alone. Typical tickets:
+
+- **Port with fake:** an external source is not ready, for example events that another module does not send yet. Derive the port from how its callers will use it, and check that the real producer can deliver this data; if that is unclear, apply section 3. Until the real source is verified, fake data stays apart from real user data, causes no real external side effects, and stays invisible to real users.
 - **Missing mechanism:** for example, the requirement asks for a feature toggle, but there is no toggle mechanism.
 - **Restructuring:** the existing structure makes the feature hard to build.
-- **Migration or provisioning** that the team can do itself.
+- **Migration or provisioning.**
 
 A ticket is never a layer such as "schema", "endpoints", or "screens".
 
 ## 5. Stage 2 · Tracer Bullet
 
-Make one path real: trigger → contract → logic → persistence → observable result → delivery. Every station is real or N/A with a one-line reason. Only a stage 1 port may use its fake.
+Make one path real: trigger → contract → logic → persistence → observable result → delivery. Every station is real or N/A with a one-line reason. Only a stage 1 port may use its fake. List the stations under **Result** on the ticket card.
 
-- **Lower bound:** every station is real, and the bullet touches the biggest architectural risk of the feature.
+- **Lower bound:** all stations are real, and the bullet touches the biggest architectural risk of the feature.
 - **Upper bound:** one trigger, one input, one rule, one path. Everything else is a variant and belongs in a slice.
 - **Test:** if you remove something, a station is no longer real. If you add something, it is a variant.
 - **Deliverable at any time:** mergeable and deployable, with tests and lint green. A toggle may hide it from users.
-
-On the ticket card, list the stations under **Result**.
 
 The Tracer Bullet is the **anchor** for stage 3. If the feature has no new end-to-end path, the anchor is the thinnest vertical slice. Say why in one line. Do not invent an artificial Tracer Bullet.
 
@@ -86,7 +84,11 @@ Cut the remaining scope along five dimensions:
 4. **Edge cases:** concurrency, retry, recovery, conflict, undo
 5. **Reach:** more actors, permissions, bulk paths, export
 
-Each slice has one goal in one sentence and moves one dimension. Put a "must not" rule in the same slice as the behavior it limits. Slices build on stage 1 and the anchor, so slices fan out by default. If several slices need the same groundwork, move it to stage 1. If a slice needs the result of another slice for business reasons, a chain is allowed; state the reason under "Builds on". Map every rule, constraint, and outcome from section 1 to an acceptance criterion or to an exclusion with a reason. Existing guarantees that the feature touches, such as documented response times or SLAs, stay valid and become acceptance criteria. Plan new quality attributes such as performance or monitoring only when the requirement names them. They become acceptance criteria of the slice that needs them.
+- Each slice has one goal in one sentence and moves one dimension.
+- Put a "must not" rule in the same slice as the behavior it limits.
+- Slices build on stage 1 and the anchor, so they fan out by default. If several slices need the same groundwork, move it to stage 1. If a slice needs the result of another slice for business reasons, a chain is allowed; state the reason under "Builds on".
+- Map every rule, constraint, and outcome from section 1 to an acceptance criterion or to an exclusion with a reason.
+- Existing guarantees that the feature touches, such as documented response times or SLAs, stay valid and become acceptance criteria. Add new quality attributes, such as performance or monitoring, only when the requirement names them, as acceptance criteria of the slice that needs them.
 
 ## 7. Waiting for trigger
 
@@ -110,4 +112,4 @@ Use one ticket card for all tickets. Leave empty fields out.
 - **Builds on:** earlier tickets
 - **Open decisions:** non-blocking only, with the assumed answer
 
-Mark every assumption as an assumption. Describe the observable result, not files, classes, or lines; the developer and the agent find these in the code. Name affected modules, contracts, and entry points when the audit found them.
+Mark every assumption as an assumption. Describe the observable result, not files, classes, or lines. Name affected modules, contracts, and entry points when the audit found them.
