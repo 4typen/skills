@@ -4,7 +4,7 @@ description: Break down a requirement of any format - PRD, epic, spec, RFC, tick
 disable-model-invocation: true
 author: André Schubert
 date: 2026-09-24
-updated: 2026-09-24
+updated: 2026-11-04
 ---
 
 # Tracer Bullet Slicing
@@ -71,6 +71,14 @@ In an agentic workflow, a developer operates and steers coding agents (e.g. Pi, 
 ## Process
 
 ### 1. Perform Feasibility & Readiness Audit (Requirement vs. Codebase)
+**Repository availability gate.** Before the audit:
+
+- Identify the repositories needed to verify the requirement and check access to each. For multiple repositories, include the contracts between them in the audit scope.
+- Record the repository scope and access status at the start of the audit. If the scope is unclear, ask which systems own the affected behavior.
+- Use accessible code or named external confirmations as evidence. A ticket is a valid requirement source, but does not by itself establish codebase readiness. Separate architecture documentation is optional when other evidence is sufficient.
+- For dependencies that cannot be verified, use `unknown` and name the missing source. Missing access does not prove that a capability is absent or that a probe category is not applicable.
+- Route these gaps through the existing `unknown` rules below. If a gap changes the Tracer Bullet, a boundary, or phase order, apply the stop gate and request the specific access or evidence needed.
+
 Probe the normalized requirement against the actual repository and surrounding systems. The probe list is closed: **every category produces at least one audit row, or the explicit entry "none — [one-line reason]".** A silently skipped category is a defect, not a shortcut.
 
 1. **Upstream data & events** - entities, IDs, calculations, and events the feature reads.
@@ -88,7 +96,9 @@ Each row carries exactly one of three verdicts:
   - a different answer would change the Tracer Bullet, a boundary, or phase order -> **blocking question, stop gate applies**;
   - otherwise -> **Phase 0 clarification enabler** with a timebox and the single decision that ends it.
 
-**Evidence rule.** Every row states how its status was established: code finding, external confirmation, or assumption. An `assumption` may never yield the verdict `ready`; it yields `unknown`. Ground every row in the repository or in a named external confirmation before assigning a status.
+**Evidence rule.** Every row states how its status was established. `ready` and `blocked` require a code finding or named external confirmation. An assumption or unavailable evidence yields `unknown`; state the assumption or name the missing source and the evidence needed to resolve it.
+
+**Shared-path impact rule.** When a requirement modifies an existing shared path rather than adding a new path alongside it, check all existing callers, background workflows, and test setups that already traverse that path. Any existing caller that would break when the shared path changes is an internal blocker and must be resolved before or within that change — never scheduled as a later slice after the switch.
 
 Categorize every `blocked` row by origin:
 - **Blocker (External):** missing upstream data or external partner dependency -> Phase 0 enabler, or port + fake.
@@ -104,7 +114,7 @@ Identify all technical and data prerequisites missing from the architecture.
 
 If a single slice could carry it, it is absorbed into that slice. An enabler is never a layer ("create the schema", "build the endpoints", "design the screens") - it is a port, a fake, a migration, or a provisioning step.
 
-- **Boundary Isolation:** If an external system (e.g. a partner API, another team's service, an unfinished upstream feature) is not ready, define an internal **Port / Interface** and a **Test Fake / Stub**. The feature slices must be 100% buildable and testable against this port.
+- **Boundary Isolation:** If an external system (e.g. a partner API, another team's service, an unfinished upstream feature) is not ready, define an internal **Port / Interface** and a **Test Fake / Stub**. Derive the port's operations and data shape from the actual interaction pattern of its callers in the codebase so the Tracer Bullet can use the port without reworking Phase 0. The feature slices must be 100% buildable and testable against this port.
 - Every fake created here creates a matching **boundary realization** item in the cross-cutting track (step 7).
 - *Sizing bound:* Phase 0 stays below the Tracer Bullet's own size. If it grows larger, the boundary was drawn too wide - redraw it.
 - When Phase 0 is complete, all preconditions for the feature are permanently resolved.
@@ -114,6 +124,7 @@ Find the single narrowest actor action that completes an end-to-end cycle. Strip
 *Completion criterion:* The action can be described in one simple sentence:
 *Actor triggers X -> System processes X -> State persists X -> Actor observes X.*
 *Single-trigger test:* the sentence names exactly one trigger. Two triggers are two loops - pick the one that carries more architectural risk and defer the other to a slice.
+*Single-boundary test:* if the requirement changes two independent state stores or subsystems (for example, an authoritative state store and a derived read projection), prove the authoritative store in the Tracer Bullet first and defer the secondary store to a follow-up vertical slice, unless existing callers read the secondary store; then the Shared-path impact rule applies.
 
 ### 4. Define the Tracer Bullet (Phase 1: The Architectural Skeleton)
 Specify the minimal end-to-end slice that traverses **every station** of the system. Stations are functional roles, not architecture layers - name them with the project's own vocabulary:
