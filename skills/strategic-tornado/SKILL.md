@@ -1,33 +1,42 @@
 ---
 name: strategic-tornado
-description: "Strategic programming (Ousterhout): deep modules, information hiding, and preparatory refactoring at agent speed. Use when implementing features, changing module boundaries, refactoring, or when the user says 'strategic', 'strategic tornado', 'deep module', or 'design it twice'."
+description: "Strategic programming (Ousterhout): deep modules, information hiding, and preparatory refactoring at agent speed. Use for nontrivial feature work, module-boundary changes, refactoring, or when the user says 'strategic', 'strategic tornado', 'deep module', or 'design it twice'."
 ---
 
 # Strategic Tornado
 
-Operate at tornado speed with a strategic investment mindset: the primary output of every change is a cleaner system design; working code is only the baseline. Optimize for the system's complexity after the change, not the size of the diff.
+Move at tornado speed with a strategic investment mindset: deliver correct behavior while leaving the system no harder to understand. Optimize for complexity after the change, not diff size; keep structural changes proportional to their benefit and risk.
 
 ## Steps
 
 ### 1. Locate the seam
-Read the target module and its callers. Identify the **information leakage**—where internal details leak, responsibilities are misplaced, or callers share assumptions and repeat wiring across files.
-- **Done when:** You can name the exact boundary and the complexity that belongs behind it.
+
+Read the target module and its callers. Find information leakage: implementation details callers must know, repeated wiring, misplaced responsibilities, or shared assumptions. If the boundary already fits, keep the change local.
+
+**Done when:** You can name the exact boundary and caller burden to remove, or explain why no boundary change is needed.
 
 ### 2. Design it twice
-Before editing, sketch two contrasting designs for the change (silent unless the trade-off needs user judgement):
-1. The natural local change.
-2. A **deep module** alternative: a simpler, narrower interface hiding more functionality and edge cases behind it (**define errors out of existence**, **pull complexity downward**).
 
-Pick the design that leaves the system simplest to understand and change, even if its diff is larger. Prefer fewer caller-facing assumptions over fewer lines of code.
-- **Done when:** The chosen interface has fewer or simpler entry points and caller assumptions than the alternative.
+Before editing, compare two designs (silently unless the trade-off needs user judgment):
+
+- The natural local change.
+- A deep-module alternative: a focused interface that hides more behavior and edge cases, eliminates avoidable error states without hiding real failures, and pulls complexity downward.
+
+Choose the design with the lowest overall complexity, accounting for coupling, migration cost, and regression risk. Fewer methods and smaller diffs are not goals in themselves.
+
+**Done when:** You can explain why the chosen design is simpler to understand and change, including its costs.
 
 ### 3. Make the change easy, then make the easy change
-When the existing structure resists the chosen design, perform a **preparatory refactoring** first so the new behaviour slots in as a natural extension. Fold the new behaviour into the right abstraction rather than stacking a special-case branch or wrapper on the outside. Create a new abstraction when no existing one owns the concept.
 
-If the refactoring changes a shared contract or significantly expands scope, present the strategic and tactical options with their costs and ask before proceeding.
-- **Done when:** The change lands without adding caller-facing special cases, pass-through methods, or temporal coupling, and all affected callers and tests pass.
+If the chosen design needs a cleaner seam, refactor it first; then place new behavior in the module that owns it rather than adding caller-side special cases, pass-through wrappers, or temporal coupling. Avoid speculative refactors whose cost or risk outweighs their benefit.
+
+If a refactor changes a shared contract or materially expands scope, present the strategic and tactical options with their costs and ask before proceeding. Run relevant tests for affected callers; report anything not verified.
+
+**Done when:** Behavior is verified as far as practical and no avoidable caller-facing complexity was added.
 
 ### 4. Boy Scout check
+
 End your reply with a two-line strategic ledger:
-- **Pulled downward:** Which complexity or special case was absorbed into the module, or what remains unresolved.
-- **Interface delta:** How the boundary facing callers became simpler, stayed flat, or grew—and why.
+
+**Pulled downward:** Which complexity was absorbed, or why none was.
+**Interface delta:** Whether the caller-facing boundary became simpler, stayed flat, or grew, and why.
