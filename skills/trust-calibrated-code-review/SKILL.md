@@ -1,5 +1,7 @@
 ---
 name: trust-calibrated-code-review
+metadata:
+  author: "André Schubert"
 description: Risk-calibrated, three-level code review with full coverage ledger and evidence-graded findings.
 disable-model-invocation: true
 ---

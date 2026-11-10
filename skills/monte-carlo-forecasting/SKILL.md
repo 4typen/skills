@@ -1,9 +1,10 @@
 ---
 name: monte-carlo-forecasting
 description: Probabilistic delivery forecasts (P50/P85/P95) from historical throughput and cycle time via Monte Carlo simulation, for Scrum (sprints) and Kanban (continuous flow). Use whenever someone asks when an epic, feature, release, or backlog will be done, how many items fit until a date, the probability of hitting a deadline, how long a single ticket takes (SLE, aging items), or wants to replace story points/velocity with data-driven forecasts, even without saying "Monte Carlo" (e.g. "wann ist das Epic fertig?", "was schaffen wir bis zum Release?", "Prognose ohne Sprints", "Roadmap realistisch?").
-author: André Schubert
-date: 2026-10-15
-updated: 2026-10-15
+metadata:
+  author: "André Schubert"
+  date: "2026-10-15"
+  updated: "2026-10-15"
 ---
 
 # Monte Carlo forecasting

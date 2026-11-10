@@ -2,9 +2,10 @@
 name: tracer-bullet-slicing
 description: Slice a feature into blocker-removal tickets, one Tracer Bullet, and fanned-out vertical slices.
 disable-model-invocation: true
-author: André Schubert
-date: 2026-09-24
-updated: 2026-11-05
+metadata:
+  author: "André Schubert"
+  date: "2026-09-24"
+  updated: "2026-11-05"
 ---
 
 Slice a feature into tickets that never block the developer: first the blockers and hidden complexity, then one Tracer Bullet, then thin vertical slices.

@@ -2,9 +2,10 @@
 name: bugfix
 description: Investigate and fix software defects with evidence and regression checks. Use only for a new, independent request to diagnose or fix a bug, regression, crash, or unexpected behavior. During an active task, handle errors, failing tests, and other obstacles in that task's workflow, even when the user asks to resolve them before finishing. Switch to this skill only if the user explicitly starts a separate bugfix task.
 argument-hint: "Please provide a description of the bug, regression, crash, or unexpected behavior."
-author: André Schubert
-date: 2026-07-31
-updated: 2026-09-24
+metadata:
+  author: "André Schubert"
+  date: "2026-07-31"
+  updated: "2026-09-24"
 ---
 
 Use this workflow only for a distinct bugfix request or an explicit `/bugfix` invocation. If the user reports an obstacle during another active task, continue that task's workflow instead.

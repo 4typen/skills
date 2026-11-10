@@ -1,5 +1,7 @@
 ---
 name: tornado
+metadata:
+  author: "André Schubert"
 description: "Strategic programming (Ousterhout): deep modules, information hiding, and preparatory refactoring at agent speed. Use for nontrivial feature work, module-boundary changes, refactoring, or when the user says 'strategic', 'strategic tornado', 'deep module', or 'design it twice'."
 ---
 

@@ -2,8 +2,9 @@
 name: refactoring
 description: Plan and execute a structural change that preserves observable behavior, either as a standalone refactoring or as a preparatory step inside a larger task. Use when the user asks to refactor, restructure, extract, centralize, or migrate internal structure; when `/refactoring` is invoked or this skill text is pasted into the prompt; or when a task changes a shared contract, call routing, or module boundary.
 argument-hint: "Describe the target structure and why it is needed."
-author: André Schubert
-date: 2026-11-05
+metadata:
+  author: "André Schubert"
+  date: "2026-11-05"
 ---
 
 Change structure, keep behavior.
