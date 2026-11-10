@@ -1,129 +1,131 @@
 ---
 name: keynote-storytelling
-description: 'Erstelle oder überarbeite Präsentationen, Keynotes, Pitch Decks und Slidev-Folien mit klarer Story, einer Botschaft pro Folie und strenger 5-Sekunden-Verständlichkeit. Verwenden, wenn du ein Deck strukturieren, Folien entschlacken, Titel in Aussagen umschreiben, Diagramme vereinfachen oder bestehende Slides kritisch reviewen willst.'
-argument-hint: 'Thema, Ziel, Publikum, Dauer, gewünschte Wirkung oder vorhandene Folien'
+metadata:
+  author: "André Schubert"
+description: 'Create or revise presentations, keynotes, pitch decks, and Slidev slides with a clear story, one message per slide, and a strict 5-second comprehension test. Use when you want to structure a deck, strip down slides, rewrite titles as statements, simplify charts, or critically review existing slides.'
+argument-hint: 'Topic, goal, audience, duration, desired effect, or existing slides'
 ---
 
 # Keynote Storytelling
 
-Erzeuge Präsentationen, die eine Geschichte tragen statt Informationen zu sammeln.
+Create presentations that carry a story instead of collecting information.
 
-Leitprinzip: Die Folien sind nicht die Präsentation. Der Sprecher ist die Präsentation. Jede Folie soll die Aufmerksamkeit auf genau den Punkt lenken, über den gerade gesprochen wird.
+Guiding principle: The slides are not the presentation. The speaker is the presentation. Each slide should direct attention to exactly the point being discussed at that moment.
 
-## Wann verwenden
+## When to use
 
-- Wenn aus einem Thema eine überzeugende Präsentationsstruktur entstehen soll
-- Wenn ein bestehendes Deck gekürzt, geschärft oder umgeschrieben werden soll
-- Wenn Folientitel noch neutral sind und in klare Aussagen umformuliert werden müssen
-- Wenn zu viel Text, zu viele Bullet Points oder überladene Diagramme auf den Folien stehen
-- Wenn eine Keynote, ein Pitch Deck, ein Management-Update oder ein Slidev-Deck narrativ und visuell verbessert werden soll
+- When a topic should become a convincing presentation structure
+- When an existing deck should be shortened, sharpened, or rewritten
+- When slide titles are still neutral and must become clear statements
+- When slides carry too much text, too many bullet points, or overloaded charts
+- When a keynote, pitch deck, management update, or Slidev deck should be improved in narrative and visual terms
 
-## Benötigte Eingaben
+## Required inputs
 
-Wenn zentrale Informationen fehlen, frage zuerst nach den kleinsten fehlenden Punkten:
+If key information is missing, ask first for the smallest missing points:
 
-- Ziel der Präsentation
-- Publikum
-- gewünschte Entscheidung, Erkenntnis oder Handlung
-- verfügbare Zeit oder Zielumfang
-- vorhandenes Material, falls schon Folien existieren
+- Goal of the presentation
+- Audience
+- Desired decision, insight, or action
+- Available time or target scope
+- Existing material, if slides already exist
 
-## Ergebnisformen
+## Output forms
 
-Wähle je nach Nutzerwunsch eine oder mehrere dieser Formen:
+Depending on the user's request, choose one or more of these forms:
 
-- Storyline mit logischer Dramaturgie
-- Slide-by-slide Outline mit Kernaussage pro Folie
-- Überarbeitung bestehender Folien
-- Review mit konkreten Schwachstellen und Rewrite-Vorschlägen
-- kurze Sprecherhinweise, wenn sie helfen die Story zu tragen
+- Storyline with a logical dramatic arc
+- Slide-by-slide outline with one key message per slide
+- Revision of existing slides
+- Review with concrete weaknesses and rewrite proposals
+- Short speaker notes, if they help carry the story
 
-## Vorgehen
+## Procedure
 
-1. Definiere die Kernbotschaft.
-   Formuliere in einem Satz, was das Publikum am Ende verstanden, entschieden oder getan haben soll.
+1. Define the core message.
+   Formulate in one sentence what the audience should understand, decide, or do at the end.
 
-2. Baue die Story als Fragenkette auf.
-   Nutze bevorzugt diese Reihenfolge und passe sie nur an, wenn der Nutzer einen anderen Ablauf braucht:
-   1. Warum ist das relevant?
-   2. Was ist das Problem?
-   3. Warum entsteht es?
-   4. Welche Optionen gibt es?
-   5. Welche Lösung wird empfohlen?
-   6. Welchen Nutzen bringt sie?
-   7. Was sind die nächsten Schritte?
+2. Build the story as a chain of questions.
+   Prefer this order and adjust it only if the user needs a different flow:
+   1. Why is this relevant?
+   2. What is the problem?
+   3. Why does it occur?
+   4. What options exist?
+   5. Which solution is recommended?
+   6. What benefit does it bring?
+   7. What are the next steps?
 
-3. Gib jeder Folie genau eine Aussage.
-   Für jede geplante oder vorhandene Folie formuliere zuerst die eine Botschaft. Wenn eine Folie mehrere Aussagen trägt, teile sie auf.
+3. Give each slide exactly one statement.
+   For each planned or existing slide, first formulate its one message. If a slide carries several statements, split it.
 
-4. Schreibe Titel als Schlussfolgerung.
-   Vermeide neutrale Überschriften wie "Ergebnisse", "Status" oder "Analyse". Der Titel soll die Aussage schon enthalten.
+4. Write titles as conclusions.
+   Avoid neutral headings such as "Results", "Status", or "Analysis". The title should already contain the statement.
 
-5. Reduziere Text radikal.
-   Streiche alles, was nicht für den aktuellen Erzählmoment nötig ist. Bevorzuge kurze Labels, starke Zahlen und klare visuelle Hierarchie statt Fließtext.
+5. Reduce text radically.
+   Remove everything not needed for the current moment in the story. Prefer short labels, strong numbers, and a clear visual hierarchy over running text.
 
-6. Ersetze Listen durch Sequenzen.
-   Wenn mehrere Punkte wichtig sind, verteile sie auf mehrere Folien oder baue sie schrittweise auf, statt eine Bullet-Wüste zu erzeugen.
+6. Replace lists with sequences.
+   If several points matter, spread them over several slides or build them up step by step, instead of producing a wall of bullets.
 
-7. Wähle das stärkste visuelle Mittel.
-   - Große Zahl, wenn eine Kennzahl im Mittelpunkt steht
-   - Vereinfachtes Diagramm, wenn ein Vergleich oder Trend gezeigt werden muss
-   - Bild nur dann, wenn es die Aussage besser verständlich macht
-   - Leeraum bewusst nutzen, wenn Fokus wichtiger ist als Vollständigkeit
+7. Choose the strongest visual device.
+   - Large number, when one metric is the focus
+   - Simplified chart, when a comparison or trend must be shown
+   - Image only if it makes the statement easier to understand
+   - Deliberate white space, when focus matters more than completeness
 
-8. Vereinfache Diagramme aggressiv.
-   Hebe nur das hervor, was die Aussage stützt. Reduziere Farben, Datenreihen, Legenden und Beschriftungen auf das Nötigste.
+8. Simplify charts aggressively.
+   Highlight only what supports the statement. Reduce colors, data series, legends, and labels to the essentials.
 
-9. Halte Stil und Logik konsistent.
-   Nutze wiederkehrende Typografie, Farbregeln und Diagrammlogik. Konsistenz ist wichtiger als originelle Einzelfolien.
+9. Keep style and logic consistent.
+   Use recurring typography, color rules, and chart logic. Consistency matters more than original single slides.
 
-10. Führe den 5-Sekunden-Test aus.
-    Prüfe für jede Folie: Kann ein Zuschauer in 3 bis 5 Sekunden sagen, worum es geht und warum es wichtig ist?
+10. Run the 5-second test.
+    For each slide, check: can a viewer say within 3 to 5 seconds what it is about and why it matters?
 
-## Entscheidungsregeln
+## Decision rules
 
-- Wenn eine Folie mehr als eine Kernaussage hat, splitte sie.
-- Wenn das Publikum lesen muss, statt zuzuhören, kürze den Text oder baue die Information um.
-- Wenn ein Titel keine Aussage macht, formuliere ihn als Schlussfolgerung neu.
-- Wenn ein Diagramm wie ein Excel-Export aussieht, vereinfache es bis nur noch die Botschaft sichtbar bleibt.
-- Wenn ein Bild nur dekorativ ist, entferne es.
-- Wenn Unsicherheit besteht, entferne Inhalte statt neue hinzuzufügen.
+- If a slide has more than one core statement, split it.
+- If the audience has to read instead of listen, shorten the text or restructure the information.
+- If a title makes no statement, rewrite it as a conclusion.
+- If a chart looks like an Excel export, simplify it until only the message stays visible.
+- If an image is only decorative, remove it.
+- If uncertainty exists, remove content instead of adding new content.
 
-## Qualitätskriterien
+## Quality criteria
 
-Eine gute Ausgabe erfüllt so viele dieser Punkte wie möglich:
+A good output meets as many of these points as possible:
 
-- Jede Folie hat genau eine erkennbare Botschaft
-- Titel sind aussageorientiert statt neutral
-- Folien sind in wenigen Sekunden erfassbar
-- Textmenge ist minimal
-- Bullet Points sind selten und kurz
-- Zahlen oder visuelle Belege tragen die Kernaussage
-- Komplexe Inhalte werden schrittweise erklärt
-- Die Gesamtstruktur folgt einer nachvollziehbaren Story
-- Weißraum und Fokus sind sichtbar priorisiert
-- Stilmittel sind über das Deck hinweg konsistent
+- Each slide has exactly one recognizable message
+- Titles are statement-oriented, not neutral
+- Slides can be grasped in a few seconds
+- Text volume is minimal
+- Bullet points are rare and short
+- Numbers or visual evidence carry the core statement
+- Complex content is explained step by step
+- The overall structure follows a traceable story
+- White space and focus are visibly prioritized
+- Stylistic devices are consistent across the deck
 
-## Arbeitsweise bei bestehenden Folien
+## Working with existing slides
 
-Wenn der Nutzer ein bestehendes Deck oder einzelne Slides liefert:
+If the user provides an existing deck or individual slides:
 
-1. Benenne pro Folie die tatsächliche oder fehlende Kernaussage.
-2. Markiere Überladung, neutrale Titel, Bullet-Wüsten, unnötige Bilder und unklare Diagramme.
-3. Schlage eine präzisere Folienaussage vor.
-4. Gib eine konkrete Rewrite-Empfehlung für Titel, Inhalt und Visual.
-5. Empfiehl Splits, wenn eine Folie zu viel gleichzeitig erklärt.
+1. For each slide, name the actual or missing core statement.
+2. Mark overloading, neutral titles, bullet walls, unnecessary images, and unclear charts.
+3. Propose a more precise slide statement.
+4. Give a concrete rewrite recommendation for title, content, and visual.
+5. Recommend splits where a slide explains too much at once.
 
-## Ausgabeformat
+## Output format
 
-Wenn kein anderes Format gewünscht ist, antworte in dieser Reihenfolge:
+Unless another format is requested, answer in this order:
 
-1. Kernbotschaft der Präsentation
-2. Empfohlene Storyline
-3. Folienliste mit je einer Aussage pro Folie
-4. Hinweise zu Visuals oder Zahlen
-5. Kürzungs- oder Rewrite-Empfehlungen
+1. Core message of the presentation
+2. Recommended storyline
+3. Slide list with one statement per slide
+4. Notes on visuals or numbers
+5. Cut or rewrite recommendations
 
-## Wichtigste Regel
+## Most important rule
 
-Wenn du zweifelst, reduziere. Die meisten Präsentationen scheitern nicht an zu wenig Inhalt, sondern an zu viel Inhalt.
+When in doubt, reduce. Most presentations fail not from too little content, but from too much content.
