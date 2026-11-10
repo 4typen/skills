@@ -401,4 +401,4 @@ The Skills CLI manages installation paths and symlinks for supported agents.
 
 ## License
 
-Personal use. No license granted to third parties unless explicitly specified.
+This repository is licensed under the MIT License. See [LICENSE](LICENSE).
