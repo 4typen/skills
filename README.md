@@ -14,7 +14,7 @@ A collection of agent skills for AI coding agents, covering bug fixing, refactor
 - **retro** : Runs a retrospective on a coding session. User-invoked.
 - **tornado** : Strategic programming: deep modules, information hiding, and preparatory refactoring.
 - **tracer-bullet-slicing** : Slices a feature into blocker tickets, one tracer bullet, and vertical slices. User-invoked.
-- **trust-calibrated-code-review** : Risk-calibrated, three-level code review with a coverage ledger and evidence-graded findings. User-invoked.
+- **trust-calibrated-code-review** : Multi-lens, anti-anchoring code review with isolated subagents, counterevidence triage, and findings-first verdicts. User-invoked.
 - **writing-for-agents** : Guidance for writing skills, `AGENTS.md`, and `CLAUDE.md` files.
 
 ## Install

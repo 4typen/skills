@@ -14,4 +14,4 @@ Source-supported concepts:
 
 Validation: survey of 43 practitioners rated overview 3.50, file analysis 3.69, chunk review 3.91 on a 1-5 scale; 63% anticipated reduced overall review effort and 52% reduced trust assessment effort (pp. 10, 12-13). Semi-interactive prototype was shown through video; study did **not** measure defects detected, actual review speed, review precision, or merge outcome (pp. 13, 17).
 
-This skill **adds** operational review checklists, heuristic scoring, severity definitions, evidence standards, safety gates, test log and merge decisions. None of these additions should be falsely attributed as empirically validated by the paper.
+This skill **adds** multi-lens context isolation (parallel subagents with blind diff quarantine to prevent narrative, file-order, and satisfaction-of-search anchoring), signal-triggered specialist routing, outward blast-radius tracing, operational severity/verdict gates, and counterevidence triage. None of these operational additions should be attributed as empirically validated by the paper.
